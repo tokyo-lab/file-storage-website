@@ -6,3 +6,8 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return "Hello Flask!"
+
+
+@app.route("/about")
+def about():
+    return "this is a url shortener"
