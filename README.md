@@ -21,3 +21,17 @@ Python 3 comes with a virtual enviornment module built-in called 'venv'. There's
 5 - In .gitignore file, you may want to add the virtual enviornment folder as 'venv/' is not picking the folder up.
 
 6 - To delete, just delete the virtual enviornment folder from the project directory
+
+# Using Flask
+
+The flask command is installed by Flask, not your application; it must be told where to find your application in order to use it. The FLASK_APP environment variable is used to specify how to load the application.
+
+Unix Bash (Linux, Mac, etc.):
+
+    export FLASK_APP=hello
+    flask run
+
+To switch Flask to the development environment and enable debug mode, set FLASK_ENV:
+
+    export FLASK_ENV=development
+    flask run
