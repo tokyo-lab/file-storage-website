@@ -31,11 +31,13 @@ def your_url():
             urls[request.form["code"]] = {"url": request.form["url"]}
 
         else:
-            f = request.files["file"]
-            full_name = request.form["code"] + secure_filename(f)
-            f.save(
-                "/Users/michaelmena/Documents/orange/url-shortener/files" + full_name
+            path = (
+                "/Users/michaelmena/Documents/orange/url-shortener/files/"
+                + request.form["code"]
             )
+            f = request.files["file"]
+            full_name = request.form["code"] + secure_filename(path)
+            f.save(path)
             urls[request.form["code"]] = {"file": full_name}
         with open("urls.json", "w") as url_file:
             json.dump(urls, url_file)
