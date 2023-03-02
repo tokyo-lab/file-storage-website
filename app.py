@@ -3,7 +3,7 @@ import json
 import os.path
 
 app = Flask(__name__)
-app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
+app.secret_key = "h432hi5ohi3h5i5hi3o2hi"
 
 
 @app.route("/")
@@ -19,9 +19,10 @@ def your_url():
         if os.path.exists("urls.json"):
             with open("urls.json") as urls_file:
                 urls = json.load(urls_file)
+
         if request.form["code"] in urls.keys():
             flash(
-                "That shortname has already been taken. Please enter a different shortname"
+                "That short name has already been taken. Please enter a different one"
             )
             return redirect(url_for("home"))
 
