@@ -7,6 +7,11 @@
     <title>Home</title>
   </head>
   <body>
+    <!-- check if any flash messages exist. This is Jinja syntax -->
+    {% for messages in get_flashed_messages() %}
+    <h2>{{ message }}</h2>
+    {% endfor %}
+
     <h1>URL Shortener</h1>
     <h2>Welcome {{ name }}</h2>
     <form action="your-url" method="post">
