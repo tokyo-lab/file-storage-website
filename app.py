@@ -36,7 +36,7 @@ def your_url():
                 + request.form["code"]
             )
             f = request.files["file"]
-            full_name = request.form["code"] + secure_filename(path)
+            full_name = request.form["code"] + secure_filename(str(f.filename))
             f.save(path)
             urls[request.form["code"]] = {"file": full_name}
         with open("urls.json", "w") as url_file:
