@@ -1,5 +1,8 @@
 {
   "fin": { "url": "https://www.yahoo.com/" },
   "eson": { "url": "https://www.espn.com/" },
-  "espn": { "url": "https://www.espn.com/" }
+  "espn": { "url": "https://www.espn.com/" },
+  "cooper": { "file": "cooperf.filename" },
+  "dog": { "file": "dogf.filename" },
+  "doggo": { "file": "doggof.filename" }
 }

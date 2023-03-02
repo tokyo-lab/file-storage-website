@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import json
 import os.path
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = "h432hi5ohi3h5i5hi3o2hi"
@@ -26,7 +27,16 @@ def your_url():
             )
             return redirect(url_for("home"))
 
-        urls[request.form["code"]] = {"url": request.form["url"]}
+        if "url" in request.form.keys():
+            urls[request.form["code"]] = {"url": request.form["url"]}
+
+        else:
+            f = request.files["file"]
+            full_name = request.form["code"] + secure_filename(f)
+            f.save(
+                "/Users/michaelmena/Documents/orange/url-shortener/files" + full_name
+            )
+            urls[request.form["code"]] = {"file": full_name}
         with open("urls.json", "w") as url_file:
             json.dump(urls, url_file)
         return render_template("your_url.html", code=request.form["code"])
