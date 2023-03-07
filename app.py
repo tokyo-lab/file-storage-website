@@ -3,6 +3,11 @@ import json
 import os.path
 from werkzeug.utils import secure_filename
 
+from rich import print as printc
+from rich.console import Console
+
+console = Console()
+
 app = Flask(__name__)
 app.secret_key = "h432hi5ohi3h5i5hi3o2hi"
 
@@ -37,9 +42,9 @@ def your_url():
                 "/Users/michaelmena/Documents/orange/url-shortener/static/user_files/"
                 + full_name
             )
-            print("This is f: ", f)
 
-            print("This is fullname: ", full_name)
+            printc("[green][+] This is f: [/green]", f)
+            printc("[green][+] This is fullname: [/green]", full_name)
             f.save(path)
             urls[request.form["code"]] = {"file": full_name}
 
@@ -52,6 +57,7 @@ def your_url():
 
 @app.route("/<string:code>")
 def redirect_to_url(code):
+    printc("[blue][+] This is code: [/blue]", code)
     if os.path.exists("urls.json"):
         with open("urls.json") as urls_file:
             urls = json.load(urls_file)
