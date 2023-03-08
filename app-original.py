@@ -37,7 +37,7 @@ def your_url():
 
         else:
             f = request.files["file"]
-            full_name = secure_filename(str(f.filename))
+            full_name = request.form["code"] + secure_filename(str(f.filename))
             path = (
                 "/Users/michaelmena/Documents/orange/url-shortener/static/user_files/"
                 + full_name
@@ -66,5 +66,5 @@ def redirect_to_url(code):
                     return redirect(urls[code]["url"])
                 else:
                     return redirect(
-                        url_for("static", filename="user_files/" + urls[code]["file"])
+                        url_for("static", filename="user_files" + urls[code]["file"])
                     )
