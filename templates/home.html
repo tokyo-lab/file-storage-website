@@ -4,6 +4,7 @@
     <title>Home</title>
   </head>
   <body>
+    {% extends 'base.html' %} {% block main %}
     <!-- check if any flash messages exist. This is Jinja syntax -->
     {% for message in get_flashed_messages() %}
     <h2>{{ message }}</h2>
@@ -38,6 +39,6 @@
       </a>
       {% endfor %}
     </ul>
-    {% endif %}
+    {% endif %} {% endblock %}
   </body>
 </html>
