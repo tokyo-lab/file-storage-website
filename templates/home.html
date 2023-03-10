@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>URL Shortener</title>
   </head>
   <body>
     {% extends 'base.html' %} {% block main %}
     <!-- check if any flash messages exist. This is Jinja syntax -->
-    {% for message in get_flashed_messages() %}
-    <h2>{{ message }}</h2>
-    {% endfor %}
 
     <h1>URL Shortener</h1>
     <form action="your-url" method="post">
