@@ -35,3 +35,21 @@ To switch Flask to the development environment and enable debug mode, set FLASK_
 
     export FLASK_ENV=development
     flask run
+
+# To run the app
+
+Be on the top project directory (url-shortener), start the venv
+
+    source urlshort_venv/bin/activate
+
+In terminal set the FLASK_APP as follow:
+
+    export FLASK_APP=urlshort
+
+Next, set the FLASK_ENV:
+
+    LASK_ENV=development
+
+Run the flask app
+
+    flask run
